@@ -33,5 +33,8 @@ public class Ex01 {
         System.out.printf("num1이 %d이고 num2가 %d 두 숫자의 합은 %d입니다. ", num1, num2, rejult);
 	
         System.out.println("수정본");
+
+        
+        System.out.println("니가?");
 	}
 }
