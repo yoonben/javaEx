@@ -1,5 +1,7 @@
 package forEx;
 
+import java.util.Random;
+
 public class Ex04_02 {
 	public static void main(String[] args) {
 		int sum = 0;
