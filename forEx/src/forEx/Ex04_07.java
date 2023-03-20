@@ -71,6 +71,7 @@ public class Ex04_07 {
 				run = false;
 			}*/
 		}
+		scan.close();
 		System.out.println("===========프로그램 종료");
 	}
 
