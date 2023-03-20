@@ -11,7 +11,7 @@ public class GuGuDan {
 		int sum = 0;
 		for(int i=1;i<=9; i++) {
 			sum = gugudan*i;
-			System.out.printf("%d x %d 는 %2d  (%d단)\n",gugudan,i,sum,gugudan);
+			System.out.printf("%d x %d = %2d  (%d단)\n",gugudan,i,sum,gugudan);
 		}
 	}
 
