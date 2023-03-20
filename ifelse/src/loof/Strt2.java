@@ -9,14 +9,14 @@ public class Strt2 {
 		System.out.print("원하는 별의 숫자를 입력하시오: ");
 		int sum = scan.nextInt();
 
-		for(int i = 0; i<=sum; i++) {
-			for(int j = sum;j>=i;j--) {
-			System.out.print("*");
-			for(int k=sum; k>j; k++) {
-				System.out.println(" ");
+		for(int i = 1; i<=sum; i++) {
+			for(int j = sum; j >0; j--) {
+				if(i>=j) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
 			}
-			}
-			
 			System.out.println();
 
 		}
