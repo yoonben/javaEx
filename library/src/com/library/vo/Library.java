@@ -49,7 +49,7 @@ public class Library {
 		// 리스트에 책을 추가합니다,
 		Book book = new Book(no, title, author, isRent);
 		bookList.add(book);
-		dao.insertBook(book);
+		dao.insertBook(bookList);
 		return true;
 	}
 	
@@ -62,7 +62,7 @@ public class Library {
 		// 책의 일렬번호를 확인
 		for(Book book : bookList) {
 			if(index == book.getNo()) {
-				dao.deleteBook(book);
+				dao.deleteBook(bookList);
 			return bookList.remove(book);
 			}
 		}
@@ -80,7 +80,7 @@ public class Library {
 				}
 				// 대여여부 변경 = 책의 정보를 수정
 				book.setRent(false);
-				dao.updateBook(book);
+				dao.updatBook(bookList);
 				return true;
 			}
 		}
@@ -104,7 +104,7 @@ public class Library {
 					return false;
 				}
 				book.setRent(true);
-				dao.updateBook(book);
+				dao.updatBook(bookList);
 				return true;
 			}
 		}
