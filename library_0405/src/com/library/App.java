@@ -7,7 +7,7 @@ public class App {
 	public static void main(String[] args) {
 		
 		// 라이브러리 생성
-		Library lib = new Library();
+		Library lib = new Library("DB");
 		// app을 생성하지 않고 getString(), getInt() 메서드를 사용 할 수 없다
 		// main 메소드는 static메소드 정적메서드
 		// 정적필드에서는 인스턴스필드를 사용할 수 없어

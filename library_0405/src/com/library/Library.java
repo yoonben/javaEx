@@ -1,8 +1,10 @@
 package com.library;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.library.dao.Dao;
+import com.library.dao.DatabaseDao;
 import com.library.dao.FileDao;
 import com.library.vo.Book;
 
@@ -23,10 +25,23 @@ public class Library {
 		System.out.println(toString());
 	}
 	
+	public Library(String daoType) {
+		if(daoType.equals("DB")) {
+			dao = new DatabaseDao();
+		}
+		
+		// 리스트 초기화
+		list = dao.getList();
+		System.out.println(toString());
+	}
+	
 	@Override
 	public String toString() {
 		System.out.println("책 목록 ==================== lib.toString");
 		String info = "";
+		
+		Collections.sort(list);
+		
 		for(Book book:list) {
 			info += book.info()+"\n";
 		}
@@ -108,8 +123,19 @@ public class Library {
 				if(book.isRent() == false) {
 					// 렌트 상태로 변경
 					book.setRent(true); 
+
+					
+					
 					// 파일로 출력
 					boolean res = dao.ListToFile(list);
+					// 데이터 베이스 업데이트
+					int i =dao.update(no);
+					if(i>0) {
+						System.out.println(i + "건 처리 되었습니다.");
+					}else {
+						System.out.println("처리도중 오류가 발생 하였습니다.");
+						book.setRent(false);
+					}
 					if(!res) {
 						book.setRent(false);
 						System.err.println("파일로 출력 하는 데 실패 했습니다.");
@@ -141,6 +167,9 @@ public class Library {
 				if(book.isRent() == true) {
 					// 반납처리
 					book.setRent(false); 
+					dao.ListToFile(list);
+					// DB 업데이트 로직 호출
+					dao.update(no);
 					boolean res = dao.ListToFile(list);
 					if(!res) {
 						book.setRent(false);

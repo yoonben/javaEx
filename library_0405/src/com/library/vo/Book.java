@@ -1,6 +1,7 @@
 package com.library.vo;
 
-public class Book {
+public class Book implements Comparable<Book>{
+	
 	// 일련번호
 	private int no;
 	// 제목
@@ -63,5 +64,14 @@ public class Book {
 	}
 	public void setRent(boolean isRent) {
 		this.isRent = isRent;
+	}
+
+	@Override
+	public int compareTo(Book o) {
+		if(this.no>o.getNo()) {
+			return 1;
+		}else {
+			return -1;
+		}
 	}
 }
