@@ -12,7 +12,7 @@ public class Library {
 	// 책 목록
 	// 필드로 선언시 클래스 내부에서 자유롭게 이용이 가능하다
 	// 전역변수
-	List<Book> list = null;
+	List<Book> list = null;	
 	// 인터페이스를 타입으로 선언 -> 인터페이스의 구현체를 이용해 생성
 	Dao dao = new FileDao();
 	
